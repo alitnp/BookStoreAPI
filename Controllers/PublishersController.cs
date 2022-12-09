@@ -7,6 +7,7 @@ using BookStore.Models;
 using BookStore.Repository;
 using BookStore.Resources;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Controllers
 {
@@ -35,7 +36,7 @@ namespace BookStore.Controllers
         [HttpGet]
         public IActionResult GetAllPublishers()
         {
-            var publishers = _context.Publishers.ToList();
+            var publishers = _context.Publishers.Include(x => x.Books).ToList();
             if (publishers == null)
                 return NotFound();
 

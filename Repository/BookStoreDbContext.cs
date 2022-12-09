@@ -14,5 +14,14 @@ namespace BookStore.Repository
         public DbSet<Publisher> Publishers { get; set; }
 
         public BookStoreDbContext(DbContextOptions options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<Book>()
+                .HasOne(b => b.Publisher)
+                .WithMany(p => p.Books)
+                .HasForeignKey(b => b.PublisherId);
+        }
     }
 }

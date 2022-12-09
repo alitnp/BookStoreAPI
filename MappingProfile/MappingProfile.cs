@@ -15,6 +15,7 @@ namespace BookStore.MappingProfile
             //Domain to API
             CreateMap<Book, BookResource>();
             CreateMap<Publisher, PublisherResource>();
+            CreateMap<Book, PublisherBookResource>();
             CreateMap<Genre, GenreResource>();
 
             //API to Domain

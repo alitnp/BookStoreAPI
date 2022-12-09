@@ -8,11 +8,11 @@ namespace BookStore.Resources
 {
     public class PublisherResource : BaseResource
     {
-        public ICollection<BookResource> Books { get; set; }
+        public ICollection<PublisherBookResource> Books { get; set; }
 
         public PublisherResource()
         {
-            Books = new Collection<BookResource>();
+            Books = new Collection<PublisherBookResource>();
         }
     }
 }
